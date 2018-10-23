@@ -1,0 +1,26 @@
+<h1>New Author</h1>
+
+<%= form_with scope: :author, url: authors_path, local: true do |form| %>
+  <%# Show validation errors%>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <ul>
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% [:first_name, :last_name, :homepage].each do |attr| %>
+    <p>
+      <%= form.label attr %><br>
+      <%= form.text_field attr %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

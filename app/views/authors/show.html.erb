@@ -1,0 +1,9 @@
+<h1>Author Details: <%= @author.name %></h1>
+
+<% [:first_name, :last_name, :homepage].each do |attribute| %>
+    <p>
+        <strong><%= Author.human_attribute_name(attribute) %>:</strong>
+        <br>
+        <%= @author.send(attribute) %>
+    </p>
+<% end %>
