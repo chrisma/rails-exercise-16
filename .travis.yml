@@ -11,7 +11,9 @@ before_install:
  - sudo pip install -r travis/requirements.txt
  - python ./travis/try_issues.py
 after_success:
- - wget -qO- https://hpi-swt2-exercise.github.io/rails-intro-exercise-tasks/tdd_tasks.tar.xz | tar xf
+ - git checkout -b travis-tmp
+ - wget https://hpi-swt2-exercise.github.io/rails-intro-exercise-tasks/tdd_tasks.tar.xz
+ - tar xf tdd_tasks.tar.xz
  - bundle exec rspec spec/_tdd_tasks/ --fail-fast
  - bundle exec rspec spec/_tdd_tasks/ --fail-fast --format j --out report.txt
  - cat report.txt | python travis/submit_issue.py
