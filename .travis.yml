@@ -1,7 +1,5 @@
 language: ruby
 cache: bundler
-git:
-  depth: 1000
 script:
  - RAILS_ENV=test bundle exec rails db:migrate
  - bundle exec rspec spec/
@@ -12,4 +10,3 @@ before_install:
  - python ./travis/try_issues.py
 after_success:
  - ./travis/travis_commands
- - bundle exec rspec spec/_tdd_tasks/ --fail-fast
