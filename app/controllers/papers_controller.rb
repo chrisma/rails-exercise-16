@@ -4,7 +4,7 @@ class PapersController < ApplicationController
   # GET /papers
   def index
     @papers = Paper.all
-    @papers = @papers.published_in params[:year] if params[:year]
+    # @papers = @papers.published_in params[:year] if params[:year]
   end
 
   # GET /papers/1

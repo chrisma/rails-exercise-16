@@ -1,6 +1,6 @@
 class Paper < ApplicationRecord
     #Scopes
-    scope :published_in, ->(year) { where("year == ?", year)}
+    # scope :published_in, ->(year) { where("year == ?", year)}
     
     #Validations
     validates :title, presence: true
